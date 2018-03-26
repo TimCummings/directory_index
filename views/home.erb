@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Dynamic Directory Index</title>
+</head>
+
+<body>
+  <h2>Dynamic Directory Index</h2>
+
+  <ul>
+    <% Dir.glob('public/*').each do |path| %>
+      <% filename = File.split(path).last %>
+      <li><a href=<%= filename %>> <%= filename %></a></li>
+    <% end %>
+  </ul>
+</body>
+</html>
