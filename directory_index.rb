@@ -3,6 +3,9 @@
 require 'sinatra'
 require 'sinatra/reloader'
 
-get '/' do
+get '/:sort?' do
+  @file_list = Dir.glob('public/*').map { |path| File.split(path).last }.sort
+  @file_list.reverse! if params['sort'] == 'descending'
+
   erb :home
 end

@@ -9,8 +9,7 @@
   <h2>Dynamic Directory Index</h2>
 
   <ul>
-    <% Dir.glob('public/*').each do |path| %>
-      <% filename = File.split(path).last %>
+    <% @file_list.each do |filename| %>
       <li><a href=<%= filename %>> <%= filename %></a></li>
     <% end %>
   </ul>
