@@ -3,14 +3,14 @@
 require 'sinatra'
 require 'sinatra/reloader'
 
-get '/:sort?' do
+get '/' do
   @file_list = Dir.glob('public/*').map { |path| File.split(path).last }.sort
   if params['sort'] == 'descending'
     @file_list.reverse!
     @link = '/'
     @link_text = 'Sort ascending'
   else
-    @link = '/descending'
+    @link = '/?sort=descending'
     @link_text = 'Sort descending'
   end
 
