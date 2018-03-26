@@ -4,7 +4,7 @@ require 'sinatra'
 require 'sinatra/reloader'
 
 get '/' do
-  @file_list = Dir.glob('public/*').map { |path| File.split(path).last }.sort
+  @file_list = Dir.glob('public/*').map { |path| File.basename(path) }.sort
   if params['sort'] == 'descending'
     @file_list.reverse!
     @link = '/'
